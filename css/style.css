@@ -36,11 +36,15 @@ h1 {
   border: 2px solid black;
   border-radius: 2px;
 }*/
-#marinetraffic {
-	
-	
+.intro {
+  padding: 10px;
+  padding-bottom: 5px;
+  min-height: 90px;
 }
 
+.intro_text {
+  text-align: center;
+}
 .produced {
   float: right;
 }

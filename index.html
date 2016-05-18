@@ -10,7 +10,7 @@
 <body>
 	<div class="wrapper">
 		<header class="clearfix">
-			<ul class="flags hidden">
+			<ul class="flags ">
 				<li><img class="flag russian" width="20" height="20" src="img/russian_flag.jpg" alt="rus" title="русский" ></li>
 
 				<li><img class="flag english" width="20" height="20" src="img/english_flag.jpg" alt="eng" title="english" ></li>
@@ -60,9 +60,30 @@
 		var flags = document.querySelectorAll(".flag");
 		var	intro_text = document.querySelectorAll(".intro_text");
 		var produced_text = document.querySelectorAll(".produced_text");
-		function changeLang (argument) {
+		
+		for (var i = 0; i < flags.length; i++) {
 			
-		}
+			(function(i){ 	//freeze i in closure 
+				
+				flags[i].addEventListener("click", function(event){
+					event.preventDefault();
+					
+					for (var j = 0; j < flags.length; j++) {
+						
+						if (j == i) {
+							intro_text[j].classList.remove("hidden");
+							produced_text[j].classList.remove("hidden");
+						
+						} else {
+						intro_text[j].classList.add("hidden");
+						produced_text[j].classList.add("hidden");
+						}
+
+					};
+				})
+			})(i);
+		};
+
 	</script>
 </body>
 </html>
